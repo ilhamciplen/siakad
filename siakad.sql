@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Feb 2021 pada 08.15
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Waktu pembuatan: 02 Mar 2022 pada 05.08
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,164 +18,221 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sikma_vokasi`
+-- Database: `siakad`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `info_lomba`
+-- Struktur dari tabel `berita`
 --
 
-CREATE TABLE `info_lomba` (
+CREATE TABLE `berita` (
   `id` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `isi` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `info_lomba`
+-- Struktur dari tabel `tb_absensi_guru`
 --
 
-INSERT INTO `info_lomba` (`id`, `judul`, `foto`, `isi`) VALUES
-(1, 'Lomba Cipta Karya Bahasa', 'laptop.jpg', '<p>Lomba Cipta Karya Bahasa merupakan sebuah lomba antar mahasiswa dalam bentuk karya sastra seperti puisi, cerpen dll</p>'),
-(5, 'Lomba LKS ', 'Couter_up-down_seven_segmen.jpg', '<p>Lomba Ketrampilan Siswa</p>');
+CREATE TABLE `tb_absensi_guru` (
+  `id_absen_guru` int(25) NOT NULL,
+  `kode_jadwal` varchar(25) NOT NULL,
+  `nip` varchar(25) NOT NULL,
+  `status_kehadiran` varchar(11) NOT NULL DEFAULT '0',
+  `tanggal` date NOT NULL,
+  `waktu_input` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kewirausahaan`
+-- Struktur dari tabel `tb_absensi_siswa`
 --
 
-CREATE TABLE `kewirausahaan` (
-  `id_kwu` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `nim` varchar(128) NOT NULL,
-  `departemen` varchar(128) NOT NULL,
-  `program_studi` varchar(128) NOT NULL,
-  `nama_usaha` varchar(128) NOT NULL,
-  `jenis_usaha` varchar(128) NOT NULL,
-  `bukti` varchar(255) NOT NULL,
-  `id_prodi` int(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kewirausahaan`
---
-
-INSERT INTO `kewirausahaan` (`id_kwu`, `nama`, `nim`, `departemen`, `program_studi`, `nama_usaha`, `jenis_usaha`, `bukti`, `id_prodi`) VALUES
-(1, 'Muhammad Edi Ilfa', '21120118120025', '-', 'D3-Akuntansi', 'Tenun Ikat', 'Niaga', 'logo_new_putih.jpeg', 14);
+CREATE TABLE `tb_absensi_siswa` (
+  `id_absensi_siswa` int(25) NOT NULL,
+  `kode_jadwal` varchar(25) NOT NULL,
+  `nisn` varchar(25) NOT NULL,
+  `status_kehadiran` varchar(25) NOT NULL DEFAULT '0',
+  `tanggal` date NOT NULL,
+  `waktu_input` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `listprodi`
+-- Struktur dari tabel `tb_gedung`
 --
 
-CREATE TABLE `listprodi` (
-  `id_prodi` int(11) NOT NULL,
-  `nama_prodi` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `listprodi`
---
-
-INSERT INTO `listprodi` (`id_prodi`, `nama_prodi`) VALUES
-(1, 'D4-Rekayasa Perancangan Mekanik'),
-(2, 'D4-Teknologi Rekayasa Kimia Industri'),
-(3, 'D4-Teknologi Rekayasa Otomasi'),
-(4, 'D4-Teknologi Rekayasa Konstruksi Perkapalan'),
-(5, 'D4-Teknik Infrastruktur Sipil Dan Perancangan'),
-(6, 'D4-Perencanaan Tata Ruang Dan Pertanahan'),
-(7, 'D4-Teknik Listrik Industri'),
-(8, 'D4-Manajemen Dan Administrasi'),
-(9, 'D4-Informasi Dan Hubungan Masyarakat'),
-(10, 'D4-Akuntansi Perpajakan'),
-(11, 'D4-Bahasa Asing Terapan'),
-(12, 'D3-Teknologi Perencanaan Wilayah dan Kota'),
-(13, 'D3-Hubungan Masyarakat'),
-(14, 'D3-Akuntansi'),
-(15, 'D3-Manajemen Perusahaan'),
-(16, 'D3-Administrasi Pajak');
+CREATE TABLE `tb_gedung` (
+  `kode_gedung` varchar(10) NOT NULL,
+  `nama_gedung` varchar(15) NOT NULL,
+  `jumlah_lantai` varchar(10) NOT NULL,
+  `panjang` varchar(10) NOT NULL,
+  `tinggi` varchar(10) NOT NULL,
+  `lebar` varchar(10) NOT NULL,
+  `keterangan` text NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT '0',
+  `action` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengajuan_lomba`
+-- Struktur dari tabel `tb_guru`
 --
 
-CREATE TABLE `pengajuan_lomba` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `nim` varchar(255) DEFAULT NULL,
-  `departemen` varchar(128) DEFAULT NULL,
-  `program_studi` varchar(128) DEFAULT NULL,
-  `semester` varchar(128) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
-  `no_hp` varchar(255) DEFAULT NULL,
-  `nama_lomba` varchar(255) DEFAULT NULL,
-  `penyelenggara` varchar(255) DEFAULT NULL,
-  `tingkat` varchar(25) DEFAULT NULL,
-  `tgl_mulai_lomba` date DEFAULT NULL,
-  `tgl_selesai_lomba` date DEFAULT NULL,
-  `tahun` varchar(20) DEFAULT NULL,
-  `upload` varchar(255) DEFAULT NULL,
-  `status_prodi` int(2) NOT NULL DEFAULT '0',
-  `status_wd1` int(2) NOT NULL DEFAULT '0',
-  `status_tu` int(2) NOT NULL DEFAULT '0',
-  `id_prodi` int(128) DEFAULT NULL,
-  `ket_tolak_prodi` varchar(1024) NOT NULL,
-  `ket_tolak_wd1` varchar(1024) NOT NULL,
-  `ket_tolak_tu` varchar(128) NOT NULL,
-  `no_surat` text,
-  `tgl_surat` varchar(25) DEFAULT NULL,
-  `tgl_buat` date DEFAULT NULL,
-  `bukti` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pengajuan_lomba`
---
-
-INSERT INTO `pengajuan_lomba` (`id`, `nama`, `nim`, `departemen`, `program_studi`, `semester`, `alamat`, `no_hp`, `nama_lomba`, `penyelenggara`, `tingkat`, `tgl_mulai_lomba`, `tgl_selesai_lomba`, `tahun`, `upload`, `status_prodi`, `status_wd1`, `status_tu`, `id_prodi`, `ket_tolak_prodi`, `ket_tolak_wd1`, `ket_tolak_tu`, `no_surat`, `tgl_surat`, `tgl_buat`, `bukti`) VALUES
-(29, 'Muhammad Edi', '21120118120025', '-', 'D3-Akuntansi', '5', 'Kudus', '0854372928745', 'CCNA', 'CISCO', 'Internasional', '2020-12-01', '2020-12-12', '2020', '10229-Article_Text-1641-1-10-20191002.pdf', 3, 3, 3, 14, '', '', '', '001/UN7.5.13/KU/2021', '25 Januari 2021', '2021-01-25', ''),
-(31, 'Lina Aulia', '21120118120019', '-', 'D3-Hubungan Masyarakat', '6', 'Jalan Prof. Soedarto, SH', '11111111111111', 'Lomba Karya Tulis Ilmiah', 'Universitas Brawijaya', 'Nasional', '2021-01-22', '2021-01-29', '2021', 'Maulana_Ilham_Mudhin_Ghozali_21120118120018_UAS_ROBOTIKA1.pdf', 3, 3, 0, 13, '', '', '', NULL, NULL, NULL, ''),
-(32, 'Dwi Nurfatma', '21120118120013', '-', 'D3-Hubungan Masyarakat', '5', 'Jalan Prof. Soedarto, SH', '0854372928745', 'Malaysia Expo', 'Malaysia', 'Internasional', '2021-02-12', '2021-02-15', '2021', 'Maulana_Ilham_Mudhin_Ghozali_21120118120018_UAS_ROBOTIKA2.pdf', 3, 0, 0, 13, '', '', '', NULL, NULL, NULL, 'default.jpg');
+CREATE TABLE `tb_guru` (
+  `nip` varchar(25) NOT NULL,
+  `nama_guru` varchar(100) NOT NULL,
+  `jenis_kelamin` varchar(11) NOT NULL,
+  `tempat_lahir` varchar(25) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `nik` varchar(25) NOT NULL,
+  `agama` varchar(25) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `status_keaktifan` int(11) NOT NULL DEFAULT 0,
+  `status_pernikahan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `prestasi`
+-- Struktur dari tabel `tb_indentitas_sekolah`
 --
 
-CREATE TABLE `prestasi` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `nim` varchar(255) DEFAULT NULL,
-  `departemen` varchar(128) DEFAULT NULL,
-  `program_studi` varchar(128) DEFAULT NULL,
-  `semester` varchar(128) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
-  `no_hp` varchar(255) DEFAULT NULL,
-  `nama_lomba` varchar(255) DEFAULT NULL,
-  `penyelenggara` varchar(255) DEFAULT NULL,
-  `tingkat` varchar(25) DEFAULT NULL,
-  `tgl_mulai_lomba` date DEFAULT NULL,
-  `tgl_selesai_lomba` date DEFAULT NULL,
-  `tahun` varchar(20) DEFAULT NULL,
-  `id_prodi` int(128) DEFAULT NULL,
-  `juara` varchar(128) NOT NULL,
-  `bukti` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `tb_indentitas_sekolah` (
+  `id_identitas` int(25) NOT NULL,
+  `nama_sekolah` varchar(100) NOT NULL,
+  `npsn` varchar(100) NOT NULL,
+  `nss` varchar(100) NOT NULL,
+  `alamat_sekolah` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data untuk tabel `prestasi`
+-- Struktur dari tabel `tb_jadwal_pelajaran`
 --
 
-INSERT INTO `prestasi` (`id`, `nama`, `nim`, `departemen`, `program_studi`, `semester`, `alamat`, `no_hp`, `nama_lomba`, `penyelenggara`, `tingkat`, `tgl_mulai_lomba`, `tgl_selesai_lomba`, `tahun`, `id_prodi`, `juara`, `bukti`) VALUES
-(30, 'Muhammad Edi', '21120118120025', '-', 'D3-Akuntansi', '5', 'Jalan Prof. Soedarto, SH', '089560373211', 'Cipta Karya Bahasa', 'Undip', 'Nasional', '2020-12-23', '2020-12-23', '2020', 14, '1', 'ip_samba_server.JPG');
+CREATE TABLE `tb_jadwal_pelajaran` (
+  `kode_jadwal` varchar(25) NOT NULL,
+  `id_tahun_akademik` int(25) NOT NULL,
+  `kode_kelas` varchar(25) NOT NULL,
+  `kode_pelajaran` varchar(25) NOT NULL,
+  `kode_ruangan` varchar(25) NOT NULL,
+  `nip` varchar(25) NOT NULL,
+  `jam_mulai` time NOT NULL,
+  `jam_selesai` time NOT NULL,
+  `hari` varchar(25) NOT NULL,
+  `action` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_jurusan`
+--
+
+CREATE TABLE `tb_jurusan` (
+  `kode_jurusan` varchar(100) NOT NULL,
+  `nama_jurusan` varchar(25) NOT NULL,
+  `action` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_kelas`
+--
+
+CREATE TABLE `tb_kelas` (
+  `kode_kelas` varchar(100) NOT NULL,
+  `nip` varchar(25) NOT NULL,
+  `kode_jurusan` varchar(25) NOT NULL,
+  `kode_ruangan` varchar(25) NOT NULL,
+  `nama_kelas` varchar(25) NOT NULL,
+  `action` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_kurikulum`
+--
+
+CREATE TABLE `tb_kurikulum` (
+  `kode_kurikulum` int(25) NOT NULL,
+  `nama_kurikulum` varchar(25) NOT NULL,
+  `status` varchar(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_mapel`
+--
+
+CREATE TABLE `tb_mapel` (
+  `kode_mapel` varchar(25) NOT NULL,
+  `kode_jurusan` varchar(25) NOT NULL,
+  `nip` text NOT NULL,
+  `kode_kurikulum` varchar(25) NOT NULL,
+  `nama_mapel` varchar(30) NOT NULL,
+  `tingkat` varchar(11) NOT NULL,
+  `action` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_ruangan`
+--
+
+CREATE TABLE `tb_ruangan` (
+  `kode_ruangan` varchar(25) NOT NULL,
+  `kode_gedung` varchar(25) NOT NULL,
+  `nama_ruangan` varchar(25) NOT NULL,
+  `kapasitas` int(25) NOT NULL,
+  `action` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_siswa`
+--
+
+CREATE TABLE `tb_siswa` (
+  `id_siswa` varchar(100) NOT NULL,
+  `nisn` varchar(20) NOT NULL,
+  `nama_siswa` varchar(120) NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `tempat_lahir` varchar(100) NOT NULL,
+  `agama` varchar(10) NOT NULL,
+  `alamat` text NOT NULL,
+  `kode_kelas` varchar(100) NOT NULL,
+  `kode_jurusan` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_tahun_akademik`
+--
+
+CREATE TABLE `tb_tahun_akademik` (
+  `id_tahun_akademik` int(25) NOT NULL,
+  `tahun` varchar(25) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -203,28 +259,16 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `nim`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `id_prodi`) VALUES
 (7, 'Admin', NULL, 'admin@gmail.com', 'profil20.jpg', '$2y$10$QEXdub0P6nQ9XsZWg44N5.Rxz69poStE3c6kxTc4Eah.MThIi.Mee', 1, 1, 1596001190, NULL),
-(27, 'Wakil Dekan 1', NULL, 'wadek@gmail.com', 'profil2.jpg', '$2y$10$8Ct5sCjE9U6EznWnDVT03eHUFl4AyGfjD4poG4hpgpxTdFYTz19Dy', 5, 1, 1599301078, NULL),
-(28, 'Kepala Tata Usaha', NULL, 'tatausaha@gmail.com', 'profil3.jpg', '$2y$10$1SQq0Y8IIFYcsWM90hoUgOtWP0Tg1TwCUBTfQeJDZtl93cmt9pygi', 6, 1, 1599301316, NULL),
-(29, 'D4-Rekayasa Perancangan Mekanik', NULL, 'kaprodi1@gmail.com', 'profil4.jpg', '$2y$10$76gufq0/Z.IRr78PtzTPRe/rfXK.1P9A76o2AB2iBOiJxR7T.Z7Oq', 4, 1, 1599301442, 1),
-(30, 'D4-Teknologi Rekayasa Kimia Industri', NULL, 'kaprodi2@gmail.com', 'profil5.jpg', '$2y$10$dEPc7z.I103Ie2IUl5sZ9e0XIKS579eyOQwzyfqwT2YJfvIeXztW6', 4, 1, 1599301502, 2),
-(31, 'D4-Teknologi Rekayasa Otomasi', NULL, 'kaprodi3@gmail.com', 'profil6.jpg', '$2y$10$UBSjBoqqLf5CfvY5H12HJe4Rgkm2Xc7KZWTh8.HXEB.WPei1hyQm6', 4, 1, 1599301553, 3),
-(32, 'D4-Teknologi Rekayasa Konstruksi Perkapalan', NULL, 'kaprodi4@gmail.com', 'profil7.jpg', '$2y$10$PG.qWrgCeAJ0vP21Bs/8KOdeB0IkeqzI5DsBu5HM.mf/L3CIHmgtC', 4, 1, 1599301609, 4),
-(33, 'D4-Teknik Infrastruktur Sipil Dan Perancangan', NULL, 'kaprodi5@gmail.com', 'profil8.jpg', '$2y$10$tFHwHbHJnI572QYYFL1/n.n2kM1KeZpzzBp4lhxt4mIWov4r6/3tG', 4, 1, 1599301685, 5),
-(34, 'D4-Perencanaan Tata Ruang Dan Pertanahan', NULL, 'kaprodi6@gmail.com', 'profil9.jpg', '$2y$10$qga9zHAflRxNOr1q/V..GuIplTH8aYtt7VoAqcCwW5a0G1JRcutKq', 4, 1, 1599301740, 6),
-(35, 'D4-Teknik Listrik Industri', NULL, 'kaprodi7@gmail.com', 'profil10.jpg', '$2y$10$OoDSnb5TKokXXYaxF48iveJgsSE79zxnt63U7561WaqyWLCgh9kJe', 4, 1, 1599301793, 7),
-(36, 'D4-Manajemen Dan Administrasi', NULL, 'kaprodi8@gmail.com', 'profil11.jpg', '$2y$10$07iTHqT/UVCqz./EaRi8y.XXQsdbgC1OkDrEL.PFSbxZ4jN.buaGq', 4, 1, 1599301855, 8),
-(37, 'D4-Informasi Dan Hubungan Masyarakat', NULL, 'kaprodi9@gmail.com', 'profil12.jpg', '$2y$10$S6JHsBH2oZyX/kf5nJFFeOHTAoI3KdxWqkyLIuapjXO0pENDAjwtW', 4, 1, 1599301906, 9),
-(38, 'D4-Akuntansi Perpajakan', NULL, 'kaprodi10@gmail.com', 'profil13.jpg', '$2y$10$CNaZIj8uWRep9o1Ss8Dk4.4QABYoXx/dNJayvfqdF.Kh4GE2p.vGm', 4, 1, 1599301956, 10),
-(39, 'D4-Bahasa Asing Terapan', NULL, 'kaprodi11@gmail.com', 'profil14.jpg', '$2y$10$S7/k3x7CnqA.AMbrHK1Aze13oFyl4fc2beHxY7guF8jvXmzdlGTTi', 4, 1, 1599302011, 11),
-(40, 'D3-Teknologi Perencanaan Wilayah Dan Kota', NULL, 'kaprodi12@gmail.com', 'profil15.jpg', '$2y$10$6OsDdr.GaoT//n/ILu9Ule3jWNkvBpysafXH06BOhCPnbvKZ2DFCm', 4, 1, 1599302072, 12),
-(41, 'D3-Hubungan Masyarakat', NULL, 'kaprodi13@gmail.com', 'profil16.jpg', '$2y$10$7mNwLecF44DcSkRuMqlFhekr9DFxx4bn1hgNBu1iVQgibSf9z8HpS', 4, 1, 1599302119, 13),
-(42, 'D3-Akuntansi', NULL, 'kaprodi14@gmail.com', 'profil17.jpg', '$2y$10$7QNi8el2BunK.qhY4Hc9f.1GyKzbkIAaU2iWhA8R1q9I7.oyGRwo6', 4, 1, 1599302163, 14),
-(43, 'D3-Manajemen Perusahaan', NULL, 'kaprodi15@gmail.com', 'profil18.jpg', '$2y$10$mM5uwlrPQdweApOpnxc70.51npxP5jQu9mCcti608Zk5ru3G9eyBu', 4, 1, 1599302209, 15),
-(44, 'D3-Administrasi Pajak', NULL, 'kaprodi16@gmail.com', 'profil19.jpg', '$2y$10$fR4N0SCZhbX8FIQHL315PeghTDkREhRqIS8xjV8wQLc3.Vd6dkIi6', 4, 1, 1599302263, 16),
-(47, 'Muhammad Edi', '21120118120025', 'edi@gmail.com   ', 'profil24.jpg', '$2y$10$d5Ln80XilQ26IFsBfDXunuKtrlsbwpWOqrD7KvWKGia0Sbz9DxhgO', 2, 1, 1600220296, NULL),
-(51, 'Lina Aulia', '21120118120019', 'lina@gmail.com', 'profil22.jpg', '$2y$10$9hD6npSKRSSxVCgrN5jT8OYVlw4WDhqWinNWAAnwJlWej/P6CbHl.', 2, 1, 1608719329, NULL),
-(52, 'Dwi Nurfatma', '21120118120013', 'fatma@gmail.com', 'profil23.jpg', '$2y$10$BYFq9Xr0AKlXj2b4n7x2QeZnQBQ5/yf93ugqCj.PYE0dVVq7OJaOG', 2, 1, 1609734184, NULL),
-(53, 'Dekan', '', 'dekan@gmail.com', 'profil.jpg', '$2y$10$QByNL2W0Rj7VQ60gcVCCZOAcKXiTfjh6LD.o1fh.N9ZlQ.7ptQK7K', 7, 1, 1610893308, NULL);
+(54, 'Arief Wibowo, S.Pd', '', 'ariefnapicips@gmail.com', 'profil25.jpg', '$2y$10$Bm2EFxN0GkBY7ZKnpryQZukAtxcPi1rSCgxlVe9i.nXSl1UmjGrNa', 3, 1, 1645857371, NULL),
+(55, 'Teknik Audio Video', NULL, 'kaprodiAV@gmail.com', 'profil26.jpg', '$2y$10$AYy/15Wp5Stvaj8/3CiQP.uEhIlrH3tB6gpi2zU.VneKowPJa8S.e', 5, 1, 1645853207, 1),
+(56, 'Teknik Kendaraan Ringan', NULL, 'kaprodiTKR@gmail.com', 'profil27.jpg', '$2y$10$zgITnNS/BbFv77cWTnXkcOcxLOd5GRyuP2YivWHDKpE7MblSAy7H2', 5, 1, 1645853247, 2),
+(57, 'Akuntansi', NULL, 'kaprodiAK@gmail.com', 'profil28.jpg', '$2y$10$fMk5fYMiHeLkW1I2QAd17exTWCYafDzduiGaYOGdyMX16.q0SdniG', 5, 1, 1645853284, 3),
+(58, 'Administrasi Perkantoran', NULL, 'kaprodiAP@gmail.com', 'profil29.jpg', '$2y$10$n48VMCYS.ZJKJdbA05uqGuY5fUlDxg3eb8.OHg2AR00xY4f5zL7w.', 5, 1, 1645853321, 4),
+(59, 'Busana Butik', NULL, 'kaprodiBB@gmail.com', 'profil30.jpg', '$2y$10$bXfS0MylcuTZQjCU/7h.9uZHLQr9dP6rg9EsYivQgr/NPRzy9BX6.', 5, 1, 1645853350, 5),
+(60, 'Kecantikan Rambut', NULL, 'kaprodiKR@gmail.com', 'profil31.jpg', '$2y$10$dAmBI4swSbvU/Au1UzOtmuQRkE.YMiYEbj8S3uyca9l2rXg/mx4va', 5, 1, 1645853386, 6),
+(61, 'Analisis Kesehatan', NULL, 'kaprodiANKES@gmail.com', 'profil32.jpg', '$2y$10$WyY7QSoRoAc8ydRz7wFzduDVJPXVjwhVJ94ZY6ngpAQRpyBVc.3GG', 5, 1, 1645853424, 7),
+(62, 'Maulana Ilham Mudhin Ghozali', NULL, 'ilham.ciplen@gmail.com ', 'gd.jpg', '$2y$10$./Jr29u9Ck8WGgctAFxrvOArBKJYDXV6.f5H5VbyHTpYm2kXMm87m', 4, 1, 1645853475, NULL),
+(69, 'Ika Rizka Annisa, S.T., M.Pd.', '', 'kepsek1@gmail.com', 'background.jpg', '$2y$10$b5mUpogy54IkmA/IIWTpQO3yn88EnE1mFU34Lp8yvEMcfjPvWkFs2', 2, 1, 1646189812, NULL);
 
 -- --------------------------------------------------------
 
@@ -244,14 +288,12 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 2, 2),
-(4, 1, 3),
-(6, 3, 4),
-(7, 4, 5),
-(8, 5, 6),
-(9, 6, 7),
-(14, 7, 8);
+(15, 1, 2),
+(18, 5, 6),
+(20, 2, 3),
+(21, 3, 4),
+(22, 4, 5),
+(29, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -270,12 +312,11 @@ CREATE TABLE `user_menu` (
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (1, 'Admin'),
-(2, 'User'),
-(3, 'Menu'),
-(5, 'Kaprodi'),
-(6, 'Wadek'),
-(7, 'Tatausaha'),
-(8, 'Dekan');
+(2, 'Menu'),
+(3, 'Kepsek\r\n'),
+(4, 'Guru'),
+(5, 'Siswa'),
+(6, 'Kaprodi');
 
 -- --------------------------------------------------------
 
@@ -294,11 +335,11 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
-(2, 'Member'),
-(4, 'Kepala Prodi'),
-(5, 'Wakil Dekan I'),
-(6, 'Tata Usaha'),
-(7, 'Dekan');
+(2, 'Kepala Sekolah\r\n'),
+(3, 'Guru'),
+(4, 'Siswa'),
+(5, 'Kepala Prodi'),
+(6, 'Tatausaha\r\n');
 
 -- --------------------------------------------------------
 
@@ -321,33 +362,23 @@ CREATE TABLE `user_sub_menu` (
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Dashboard Admin', 'admin', 'fas fa-fw fa-home', 1),
-(2, 2, 'Dashboard User', 'user', 'fas fa-fw fa-users', 1),
-(5, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder-plus', 1),
-(6, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
+(5, 2, 'Menu Management', 'menu', 'fas fa-fw fa-folder-plus', 1),
+(6, 2, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
 (8, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-plus', 1),
-(11, 2, 'Prestasi Mahasiswa', 'user/prestasi', 'fas fa-fw fa-user-graduate', 1),
-(12, 2, 'Kewirausahaan Mahasiswa', 'user/kewirausahaan', 'fas fa-fw fa-coins', 1),
-(15, 4, 'Dashboard Keuangan', 'keuangan', 'fas fa-fw fa-home', 1),
-(18, 5, 'Dashboard Kaprodi', 'kaprodi', 'fas fa-fw fa-home', 1),
-(20, 6, 'Dashboard WD 1', 'wadek', 'fas fa-fw fa-home', 1),
-(22, 7, 'Dashboard TU', 'tatausaha', 'fas fa-fw fa-home', 1),
-(25, 5, 'Data Pengajuan Lomba', 'kaprodi/data_pengajuan_lomba', 'fas fa-fw fa-book', 1),
-(27, 2, 'Pengajuan Lomba', 'user/pengajuanlomba', 'fas fa-fw fa-paper-plane', 1),
-(28, 2, 'Status', 'user/status', 'fas fa-fw fa-info', 1),
-(29, 5, 'Status', 'kaprodi/status', 'fas fa-fw fa-info', 1),
-(30, 6, 'Data Pengajuan Lomba', 'wadek/data_pengajuan_lomba', 'fas fa-fw fa-book', 1),
-(31, 6, 'Status', 'wadek/status', 'fas fa-fw fa-info', 1),
-(32, 7, 'Data Pengajuan Lomba', 'tatausaha/data_pengajuan_lomba', 'fas fa-fw fa-book', 1),
-(33, 7, 'Status', 'tatausaha/status', 'fas fa-fw fa-info', 1),
-(35, 5, 'Prestasi Mahasiswa', 'kaprodi/prestasi', 'fas fa-fw fa-user-graduate', 1),
-(36, 5, 'Kewirausahaan Mahasiswa', 'kaprodi/kewirausahaan', 'fas fa-fw fa-coins', 1),
-(38, 8, 'Dashboard Dekan', 'dekan/index', 'fas fa-fw fa-home', 1),
-(40, 6, 'Prestasi Mahasiswa', 'wadek/prestasi', 'fas fa-fw fa-user-graduate', 1),
-(41, 6, 'Kewirausahaan Mahasiswa', 'wadek/kewirausahaan', 'fas fa-fw fa-coins', 1),
-(42, 7, 'Prestasi Mahasiswa', 'tatausaha/prestasi', 'fas fa-fw fa-user-graduate', 1),
-(43, 7, 'Kewirausahaan Mahasiswa', 'tatausaha/kewirausahaan', 'fas fa-fw fa-coins', 1),
-(44, 8, 'Prestasi Mahasiswa', 'dekan/prestasi', 'fas fa-fw fa-user-graduate', 1),
-(45, 8, 'Kewirausahaan Mahasiswa', 'dekan/kewirausahaan', 'fas fa-fw fa-coins', 1);
+(49, 4, 'Dashboard Guru', 'guru', 'fas fa-fw fa-home', 1),
+(50, 4, 'Absensi Siswa', 'guru/absensiswa', 'fas fa-fw fa-book', 1),
+(51, 4, 'Bahan dan Tugas', 'guru/bahan', 'fas fa-fw fa-book', 1),
+(52, 4, 'Kompetensi Dasar', 'guru/kompetensi', 'fas fa-fw fa-book', 1),
+(53, 4, 'Journal KBM', 'guru/kbm', 'fas fa-fw fa-book', 1),
+(54, 4, 'Laporan Nilai Siswa', 'guru/nilai', 'fas fa-fw fa-book', 1),
+(57, 1, 'Data Master', 'admin/master', 'fas fa-fw fa-book', 1),
+(58, 3, 'Dashboard Kepala Sekolah', 'kepalasekolah', 'fas fa-fw fa-home', 1),
+(59, 6, 'Dashboard Kaprodi', 'kaprodi', 'fas fa-fw fa-home', 1),
+(61, 3, 'Laporan Guru', 'kepalasekolah/lap_guru', 'fas fa-fw fa-book', 1),
+(62, 3, 'Laporan Kesiswaan', 'kepalasekolah/lap_siswa', 'fas fa-fw fa-book', 1),
+(64, 5, 'Dashboard Siswa', 'siswa', 'fas fa-fw fa-home', 1),
+(65, 5, 'Bahan dan Tugas', 'siswa/bahan_tugas', 'fas fa-fw fa-book', 1),
+(66, 5, 'Laporan Nilai Siswa', 'siswa/lap_nilai', 'fas fa-fw fa-book', 1);
 
 -- --------------------------------------------------------
 
@@ -367,34 +398,82 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indeks untuk tabel `info_lomba`
+-- Indeks untuk tabel `berita`
 --
-ALTER TABLE `info_lomba`
+ALTER TABLE `berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kewirausahaan`
+-- Indeks untuk tabel `tb_absensi_guru`
 --
-ALTER TABLE `kewirausahaan`
-  ADD PRIMARY KEY (`id_kwu`);
+ALTER TABLE `tb_absensi_guru`
+  ADD PRIMARY KEY (`id_absen_guru`);
 
 --
--- Indeks untuk tabel `listprodi`
+-- Indeks untuk tabel `tb_absensi_siswa`
 --
-ALTER TABLE `listprodi`
-  ADD PRIMARY KEY (`id_prodi`);
+ALTER TABLE `tb_absensi_siswa`
+  ADD PRIMARY KEY (`id_absensi_siswa`);
 
 --
--- Indeks untuk tabel `pengajuan_lomba`
+-- Indeks untuk tabel `tb_gedung`
 --
-ALTER TABLE `pengajuan_lomba`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_gedung`
+  ADD PRIMARY KEY (`kode_gedung`);
 
 --
--- Indeks untuk tabel `prestasi`
+-- Indeks untuk tabel `tb_guru`
 --
-ALTER TABLE `prestasi`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_guru`
+  ADD PRIMARY KEY (`nip`);
+
+--
+-- Indeks untuk tabel `tb_indentitas_sekolah`
+--
+ALTER TABLE `tb_indentitas_sekolah`
+  ADD PRIMARY KEY (`id_identitas`);
+
+--
+-- Indeks untuk tabel `tb_jadwal_pelajaran`
+--
+ALTER TABLE `tb_jadwal_pelajaran`
+  ADD PRIMARY KEY (`kode_jadwal`);
+
+--
+-- Indeks untuk tabel `tb_jurusan`
+--
+ALTER TABLE `tb_jurusan`
+  ADD PRIMARY KEY (`kode_jurusan`);
+
+--
+-- Indeks untuk tabel `tb_kelas`
+--
+ALTER TABLE `tb_kelas`
+  ADD PRIMARY KEY (`kode_kelas`);
+
+--
+-- Indeks untuk tabel `tb_mapel`
+--
+ALTER TABLE `tb_mapel`
+  ADD PRIMARY KEY (`kode_mapel`);
+
+--
+-- Indeks untuk tabel `tb_ruangan`
+--
+ALTER TABLE `tb_ruangan`
+  ADD PRIMARY KEY (`kode_ruangan`);
+
+--
+-- Indeks untuk tabel `tb_siswa`
+--
+ALTER TABLE `tb_siswa`
+  ADD PRIMARY KEY (`nisn`);
+
+--
+-- Indeks untuk tabel `tb_tahun_akademik`
+--
+ALTER TABLE `tb_tahun_akademik`
+  ADD PRIMARY KEY (`id_tahun_akademik`);
 
 --
 -- Indeks untuk tabel `user`
@@ -437,64 +516,40 @@ ALTER TABLE `user_token`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `info_lomba`
+-- AUTO_INCREMENT untuk tabel `berita`
 --
-ALTER TABLE `info_lomba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `kewirausahaan`
---
-ALTER TABLE `kewirausahaan`
-  MODIFY `id_kwu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `listprodi`
---
-ALTER TABLE `listprodi`
-  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT untuk tabel `pengajuan_lomba`
---
-ALTER TABLE `pengajuan_lomba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT untuk tabel `prestasi`
---
-ALTER TABLE `prestasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
