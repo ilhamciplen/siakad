@@ -8,6 +8,7 @@ class Auth extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
     }
+
     public function index()
     {
 
@@ -28,7 +29,6 @@ class Auth extends CI_Controller
         }
     }
 
-
     private function _login() //hanya bisa di akses di class Auth atau tidak bisa diakses lewat url
     {
         //mengambil data email dan password yg lolos validasi
@@ -45,30 +45,26 @@ class Auth extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'name' => $user['name'],
-                        'role_id' => $user['role_id'],
-                        'nim' => $user['nim'],
-
+                        'nip_nisn' => $user['nip_nisn'],
+                        'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin');
-                    } else if ($user['role_id'] == 7) {
-                        redirect('kepsek');
                     } else if ($user['role_id'] == 3) {
                         redirect('guru');
                     } else if ($user['role_id'] == 4) {
+                        $this->session->set_userdata($data);
                         redirect('siswa');
                     } else if ($user['role_id'] == 5) {
                         $data = [
-
-                            'email' => $user['email'],
-                            'role_id' => $user['role_id'],
-                            'name' => $user['name'],
                             'id_prodi' => $user['id_prodi']
                         ];
                         $this->session->set_userdata($data);
                         redirect('kaprodi');
-                    } 
+                    } else if ($user['role_id'] == 6) {
+                        redirect('kepsek');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
                     redirect('auth');
@@ -82,6 +78,7 @@ class Auth extends CI_Controller
             redirect('auth');
         }
     }
+
     /*public function registration()
     {
         if ($this->session->userdata('email')) {
@@ -227,8 +224,6 @@ class Auth extends CI_Controller
     }
 
     */
-
-
 
     public function logout()
     {

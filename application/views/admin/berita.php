@@ -1,43 +1,49 @@
 <script src="<?php echo base_url() ?>assets/assets/tinymce/js/tinymce/tinymce.min.js"></script>
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title;  ?></h1>
+<?php $this->load->view('admin/alert');?>
 
 
+<div class="content-wrapper">
+         <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><?= $title;  ?></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= base_url('admin') ?>">Dashboard</a></li>
+              <li class="breadcrumb-item active">Berita</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
 
-
-</div>
 <!-- Main content -->
 <section class="content">
-    <div class="container-fluid">
-        <!-- Main row -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
+     <div class="container-fluid">
+         <!-- Main row -->
+         <div class="row">
+             <div class="col-12">
+                 <div class="card card-info">
+                     <div class="card-header">
+                     <h3 class="card-title">Data Berita (last update <?php echo date('d M Y'); ?>)</h3>
+                     </div>
+                     
+                     <div class="card-body">
+
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                         <div class="card">
+                            <div class="card-header">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>Tambah Data Baru</button>
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <?php if ($this->session->flashdata('message')) {
-                            echo '<div class="alert alert-success alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                            echo $this->session->flashdata('message');
-                            echo '</div>';
-                        }
-                        ?>
-                        <?php if ($this->session->flashdata('form_error')) : ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?php echo $this->session->flashdata('form_error'); ?>
-                            </div>
-                        <?php endif; ?>
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info" id="datatables">
+                                    <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -59,8 +65,8 @@
                                                     <td><?= $s->isi; ?></td>
 
                                                     <td>
-                                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#update_berita<?= $s->id ?>"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deletemodal"><i class="fas fa-trash"></i></button>
+                                                        <button title="Edit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#update_berita<?= $s->id ?>"><i class="fas fa-edit"></i></button>
+                                                        <a title="Hapus" onclick="deleteConfirm('<?php echo site_url('admin/delete_berita/' . $s->id) ?>')" href="#!"  data-toggle="modal" data-target="#deletemodal" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -78,7 +84,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        
                     </div>
 
 
@@ -164,7 +170,7 @@
                                 <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    <a id="btn-delete" class="btn btn-danger" href="<?php echo site_url('Admin/delete_berita/' . $s->id) ?>">Delete</a>
+                                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -215,3 +221,21 @@
                             </div>
                         </div>
                     <?php } ?>
+
+                    </div>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+
+                    <script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>

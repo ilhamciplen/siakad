@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Mar 2022 pada 05.08
+-- Waktu pembuatan: 03 Mar 2022 pada 21.29
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -78,8 +78,7 @@ CREATE TABLE `tb_gedung` (
   `tinggi` varchar(10) NOT NULL,
   `lebar` varchar(10) NOT NULL,
   `keterangan` text NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT '0',
-  `action` varchar(100) NOT NULL
+  `status` varchar(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -99,20 +98,6 @@ CREATE TABLE `tb_guru` (
   `alamat` varchar(100) NOT NULL,
   `status_keaktifan` int(11) NOT NULL DEFAULT 0,
   `status_pernikahan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_indentitas_sekolah`
---
-
-CREATE TABLE `tb_indentitas_sekolah` (
-  `id_identitas` int(25) NOT NULL,
-  `nama_sekolah` varchar(100) NOT NULL,
-  `npsn` varchar(100) NOT NULL,
-  `nss` varchar(100) NOT NULL,
-  `alamat_sekolah` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -259,7 +244,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `nim`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `id_prodi`) VALUES
 (7, 'Admin', NULL, 'admin@gmail.com', 'profil20.jpg', '$2y$10$QEXdub0P6nQ9XsZWg44N5.Rxz69poStE3c6kxTc4Eah.MThIi.Mee', 1, 1, 1596001190, NULL),
-(54, 'Arief Wibowo, S.Pd', '', 'ariefnapicips@gmail.com', 'profil25.jpg', '$2y$10$Bm2EFxN0GkBY7ZKnpryQZukAtxcPi1rSCgxlVe9i.nXSl1UmjGrNa', 3, 1, 1645857371, NULL),
+(54, 'Arief Wibowo, S.Pd', NULL, 'ariefnapicips@gmail.com', 'profil25.jpg', '$2y$10$Bm2EFxN0GkBY7ZKnpryQZukAtxcPi1rSCgxlVe9i.nXSl1UmjGrNa', 3, 1, 1645857371, NULL),
 (55, 'Teknik Audio Video', NULL, 'kaprodiAV@gmail.com', 'profil26.jpg', '$2y$10$AYy/15Wp5Stvaj8/3CiQP.uEhIlrH3tB6gpi2zU.VneKowPJa8S.e', 5, 1, 1645853207, 1),
 (56, 'Teknik Kendaraan Ringan', NULL, 'kaprodiTKR@gmail.com', 'profil27.jpg', '$2y$10$zgITnNS/BbFv77cWTnXkcOcxLOd5GRyuP2YivWHDKpE7MblSAy7H2', 5, 1, 1645853247, 2),
 (57, 'Akuntansi', NULL, 'kaprodiAK@gmail.com', 'profil28.jpg', '$2y$10$fMk5fYMiHeLkW1I2QAd17exTWCYafDzduiGaYOGdyMX16.q0SdniG', 5, 1, 1645853284, 3),
@@ -268,7 +253,7 @@ INSERT INTO `user` (`id`, `name`, `nim`, `email`, `image`, `password`, `role_id`
 (60, 'Kecantikan Rambut', NULL, 'kaprodiKR@gmail.com', 'profil31.jpg', '$2y$10$dAmBI4swSbvU/Au1UzOtmuQRkE.YMiYEbj8S3uyca9l2rXg/mx4va', 5, 1, 1645853386, 6),
 (61, 'Analisis Kesehatan', NULL, 'kaprodiANKES@gmail.com', 'profil32.jpg', '$2y$10$WyY7QSoRoAc8ydRz7wFzduDVJPXVjwhVJ94ZY6ngpAQRpyBVc.3GG', 5, 1, 1645853424, 7),
 (62, 'Maulana Ilham Mudhin Ghozali', NULL, 'ilham.ciplen@gmail.com ', 'gd.jpg', '$2y$10$./Jr29u9Ck8WGgctAFxrvOArBKJYDXV6.f5H5VbyHTpYm2kXMm87m', 4, 1, 1645853475, NULL),
-(69, 'Ika Rizka Annisa, S.T., M.Pd.', '', 'kepsek1@gmail.com', 'background.jpg', '$2y$10$b5mUpogy54IkmA/IIWTpQO3yn88EnE1mFU34Lp8yvEMcfjPvWkFs2', 2, 1, 1646189812, NULL);
+(69, 'Ika Rizka Annisa, S.T., M.Pd.', NULL, 'kepsek1@gmail.com', 'profil32.jpg', '$2y$10$b5mUpogy54IkmA/IIWTpQO3yn88EnE1mFU34Lp8yvEMcfjPvWkFs2', 7, 1, 1646189812, NULL);
 
 -- --------------------------------------------------------
 
@@ -288,12 +273,12 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(15, 1, 2),
-(18, 5, 6),
-(20, 2, 3),
-(21, 3, 4),
-(22, 4, 5),
-(29, 1, 3);
+(2, 1, 2),
+(7, 1, 7),
+(32, 3, 4),
+(33, 4, 5),
+(34, 5, 6),
+(35, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -313,7 +298,7 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (1, 'Admin'),
 (2, 'Menu'),
-(3, 'Kepsek\r\n'),
+(3, 'Kepsek'),
 (4, 'Guru'),
 (5, 'Siswa'),
 (6, 'Kaprodi');
@@ -335,11 +320,11 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
-(2, 'Kepala Sekolah\r\n'),
 (3, 'Guru'),
 (4, 'Siswa'),
 (5, 'Kepala Prodi'),
-(6, 'Tatausaha\r\n');
+(6, 'Tatausaha\r\n'),
+(7, 'Kepala Sekolah\r\n');
 
 -- --------------------------------------------------------
 
@@ -371,11 +356,11 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (52, 4, 'Kompetensi Dasar', 'guru/kompetensi', 'fas fa-fw fa-book', 1),
 (53, 4, 'Journal KBM', 'guru/kbm', 'fas fa-fw fa-book', 1),
 (54, 4, 'Laporan Nilai Siswa', 'guru/nilai', 'fas fa-fw fa-book', 1),
-(57, 1, 'Data Master', 'admin/master', 'fas fa-fw fa-book', 1),
-(58, 3, 'Dashboard Kepala Sekolah', 'kepalasekolah', 'fas fa-fw fa-home', 1),
+(57, 1, 'Data Master', 'admin/data_master', 'fas fa-fw fa-book', 1),
+(58, 3, 'Dashboard Kepala Sekolah', 'kepsek', 'fas fa-fw fa-home', 1),
 (59, 6, 'Dashboard Kaprodi', 'kaprodi', 'fas fa-fw fa-home', 1),
-(61, 3, 'Laporan Guru', 'kepalasekolah/lap_guru', 'fas fa-fw fa-book', 1),
-(62, 3, 'Laporan Kesiswaan', 'kepalasekolah/lap_siswa', 'fas fa-fw fa-book', 1),
+(61, 3, 'Laporan Guru', 'kepsek/lap_guru', 'fas fa-fw fa-book', 1),
+(62, 3, 'Laporan Kesiswaan', 'kepsek/lap_siswa', 'fas fa-fw fa-book', 1),
 (64, 5, 'Dashboard Siswa', 'siswa', 'fas fa-fw fa-home', 1),
 (65, 5, 'Bahan dan Tugas', 'siswa/bahan_tugas', 'fas fa-fw fa-book', 1),
 (66, 5, 'Laporan Nilai Siswa', 'siswa/lap_nilai', 'fas fa-fw fa-book', 1);
@@ -426,12 +411,6 @@ ALTER TABLE `tb_gedung`
 --
 ALTER TABLE `tb_guru`
   ADD PRIMARY KEY (`nip`);
-
---
--- Indeks untuk tabel `tb_indentitas_sekolah`
---
-ALTER TABLE `tb_indentitas_sekolah`
-  ADD PRIMARY KEY (`id_identitas`);
 
 --
 -- Indeks untuk tabel `tb_jadwal_pelajaran`
@@ -525,13 +504,13 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`

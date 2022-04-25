@@ -1,25 +1,44 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<?php $this->load->view('menu/alert');?>
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+<div class="content-wrapper">
+         <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><?= $title;  ?></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= base_url('admin') ?>">Dashboard</a></li>
+              <li class="breadcrumb-item active">Sub Menu Management</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
 
-            <!-- Main row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
+      <!-- Main content -->
+<section class="content">
+     <div class="container-fluid">
+         <!-- Main row -->
+         <div class="row">
+             <div class="col-12">
+                 <div class="card card-info">
+                     <div class="card-header">
+                     <h3 class="card-title">Sub Menu Management (last update <?php echo date('d M Y'); ?>)</h3>
+                     </div>
+                     
+                     <div class="card-body">
 
-                        <div class="card-header">
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                         <div class="card">
+                            <div class="card-header">
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
                         </div>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse show" id="collapseCardExample">
-                            <div class="card-body">
-
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <?php if (validation_errors()) : ?>
@@ -28,22 +47,10 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->flashdata('message')) {
-                                        echo '<div class="alert alert-success alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                                        echo $this->session->flashdata('message');
-                                        echo '</div>';
-                                    }
-                                    ?>
-                                    <?php if ($this->session->flashdata('form_error')) : ?>
-                                        <div class="alert alert-danger" role="alert">
-                                            <?php echo $this->session->flashdata('form_error'); ?>
-                                        </div>
-                                    <?php endif; ?>
                                     <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <table class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info" id="datatables">
+                                                <table id="example1" class="table table-bordered table-striped">
 
                                                     <thead>
                                                         <tr>

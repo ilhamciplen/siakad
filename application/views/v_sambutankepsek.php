@@ -1,5 +1,12 @@
 
 <!DOCTYPE html>
+<style type="text/css">
+   .left    { text-align: left;}
+   .right   { text-align: right;}
+   .center  { text-align: center;}
+   .justify { text-align: justify;}
+</style>
+
 <html lang="en">
 <head>
 <!-- basic -->
@@ -101,7 +108,7 @@
                     <li><a href="<?= base_url('Jurusan/ankes') ?>">Analis Kesehatan</a></li>
                   </ul>
                 </li>
-                <li> <a href="#">Berita</a></li>
+                <li> <a href="<?= base_url('Berita/index') ?>">Berita</a></li>
                 <li> <a href="#">PPDB Online</a></li>
                 <li> <a href="#">Uji Kompetensi</a>
                   <ul>
@@ -125,49 +132,24 @@
   <!-- header bottom end -->
 </header>
 <!-- end header -->
-<!-- inner page banner -->
-<div id="inner_banner_section" class="section inner_banner_section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="full">
-          <div class="title-holder">
-            <div class="title-holder-cell text-left">
-              <h1 class="page-title">Sambutan Kepala Sekolah</h1>
-              <ol class="breadcrumb">
-                <li><a href="<?= base_url('Home/index') ?>">Home</a></li>
-                <li>Tentang Kami</li>
-                <li class="active">Sambutan Kepala Sekolah</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end inner page banner -->
-<!-- section -->
-<div class="section padding_layout_1">
+
+
   <div class="container">
 
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12"><br>
+      <i><font color="grey" size="2" face="Arial">Beranda > Sambutan Kepala Sekolah</font></i><br><br>
+      <font color="black" size="6" face="Arial">Sambutan Kepala Sekolah SMK Islam Al-Hikmah Mayong</font><br><br><br><br>
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog" style="padding:0 15px;">
             <div class="full text_align_left">
-              <h3>About Career</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                standard dummy text ever since the 1500s, when an unknown printer took a galley..</p>
-              <ul>
-                <li><i class="fa fa-check-circle"></i>Persius appetere pro mea harum ridens</li>
-                <li><i class="fa fa-check-circle"></i>Instructior vis at causae legimus luptatum mel</li>
-                <li><i class="fa fa-check-circle"></i>Maluisset id persius appetere pro mea harum</li>
-              </ul>
+              <font color="black" size="5" face="Times New Roman">Assalamualaikum Warahmatullahi Wabarakatuh.</font><br><br>
+              <!-- <p align="justify" color="black" >Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p><br><br> -->
+              <p align="justify"><font face="Arial" color="black" size="3">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</font></p>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 about_feature_img">
-            <div class="full text_align_center"> <img class="img-responsive" src="<?= base_url() ?>template/front-end/images/it_service/post-06.jpg" alt="#"> </div>
+            <div class="full text_align_center"> <img class="img-responsive" src="<?= base_url() ?>template/front-end/images/it_service/tv.jpg" alt="#"> </div>
           </div>
         </div>
         <div class="row" style="margin-bottom: 30px;">
@@ -184,36 +166,9 @@
         </div>
         
       </div>
-      <div class="col-md-3">
-        <div class="side_bar">
-          <div class="side_bar_blog">
-            <h4>SEARCH</h4>
-            <div class="side_bar_search">
-              <div class="input-group stylish-input-group">
-                <input class="form-control" placeholder="Search" type="text">
-                <span class="input-group-addon">
-                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </span> </div>
-            </div>
-          </div>
-          
-          <div class="side_bar_blog">
-            <h4>RECENT NEWS</h4>
-            <div class="categary">
-              <ul>
-                <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Land lights let be divided</a></li>
-                <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Seasons over bearing air</a></li>
-                <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Greater open after grass</a></li>
-                <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Gathered was divide second</a></li>
-              </ul>
-            </div>
-          </div>
-          
-        </div>
-      </div>
     </div>
   </div>
-</div>
+
 <!-- end section -->
 
 <!-- Modal -->
@@ -246,67 +201,32 @@
   <div class="container-fuild">
     <div class="row">
       <div class="map_section">
-        <div id="map"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.194576305181!2d110.76040904829311!3d-6.746107095099388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70dc4d092ba169%3A0xdf7902f11adb88c9!2sSMK%20Islam%20Al%20Hikmah%201%20Mayong!5e0!3m2!1sid!2sid!4v1649059678331!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="footer_blog">
         <div class="row">
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
+              <h2>Tentang Kami</h2>
             </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
+            <!-- <p>Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</p> -->
+            <p align="justify"><font face="Arial" color="white" size="2">Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</font></p>
+            
           </div>
+
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>Additional links</h2>
+              <h2>Kontak</h2>
             </div>
-            <ul class="footer-menu">
-              <li><a href="it_about.html"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-              <li><a href="it_news.html"><i class="fa fa-angle-right"></i> News</a></li>
-              <li><a href="it_contact.html"><i class="fa fa-angle-right"></i> Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <div class="main-heading left_text">
-              <h2>Services</h2>
-            </div>
-            <ul class="footer-menu">
-              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
-              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a></li>
-              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a></li>
-              <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network solutions</a></li>
-              <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
-                </fieldset>
-              </form>
-            </div>
+            <!-- <p>Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</p> -->
+            <p align="justify"><font face="Arial" color="white" size="2">Alamat &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;Desa Singorojo RT. 05 RW. 03, Singorojo, Kec. Mayong, Kab. Jepara Prov. Jawa Tengah</font></p><br>
+            <p align="justify"><font face="Arial" color="white" size="2">Phone &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;(0291) 000000</font></p>
           </div>
         </div>
       </div>
       <div class="cprt">
-        <p>ItNext © Copyrights 2019 Design by html.design</p>
+        
+        <p align="center"><font face="Arial" color="white" size="2">SMKIA © Copyrights <?= date('Y'); ?> Design by Kuli Web Harian</font></p>
       </div>
     </div>
   </div>
@@ -321,114 +241,8 @@
 <script src="<?= base_url() ?>template/front-end/js/wow.js"></script>
 <!-- custom js -->
 <script src="<?= base_url() ?>template/front-end/js/custom.js"></script>
-<script>
 
-      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-      // Australia.
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: 40.645037, lng: -73.880224},
-		  styles: [
-               {
-                 elementType: 'geometry',
-                 stylers: [{color: '#fefefe'}]
-               },
-               {
-                 elementType: 'labels.icon',
-                 stylers: [{visibility: 'off'}]
-               },
-               {
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#616161'}]
-               },
-               {
-                 elementType: 'labels.text.stroke',
-                 stylers: [{color: '#f5f5f5'}]
-               },
-               {
-                 featureType: 'administrative.land_parcel',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#bdbdbd'}]
-               },
-               {
-                 featureType: 'poi',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eeeeee'}]
-               },
-               {
-                 featureType: 'poi',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#757575'}]
-               },
-               {
-                 featureType: 'poi.park',
-                 elementType: 'geometry',
-                 stylers: [{color: '#e5e5e5'}]
-               },
-               {
-                 featureType: 'poi.park',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#9e9e9e'}]
-               },
-               {
-                 featureType: 'road',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eee'}]
-               },
-               {
-                 featureType: 'road.arterial',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#3d3523'}]
-               },
-               {
-                 featureType: 'road.highway',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eee'}]
-               },
-               {
-                 featureType: 'road.highway',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#616161'}]
-               },
-               {
-                 featureType: 'road.local',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#9e9e9e'}]
-               },
-               {
-                 featureType: 'transit.line',
-                 elementType: 'geometry',
-                 stylers: [{color: '#e5e5e5'}]
-               },
-               {
-                 featureType: 'transit.station',
-                 elementType: 'geometry',
-                 stylers: [{color: '#000'}]
-               },
-               {
-                 featureType: 'water',
-                 elementType: 'geometry',
-                 stylers: [{color: '#c8d7d4'}]
-               },
-               {
-                 featureType: 'water',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#b1a481'}]
-               }
-             ]
-		});
-
-        var image = 'images/it_service/location_icon_map_cont.png';
-        var beachMarker = new google.maps.Marker({
-          position: {lat: 40.645037, lng: -73.880224},
-          map: map,
-          icon: image
-        });
-      }
-    </script>
 <!-- google map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
 <!-- end google map js -->
 </body>
 </html>

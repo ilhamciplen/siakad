@@ -1,42 +1,46 @@
- <!-- Begin Page Content -->
- <div class="container-fluid">
+<?php $this->load->view('admin/alert');?>
 
-     <!-- Page Heading -->
-     <h1 class="h3 mb-4 text-gray-800"><?= $title;  ?></h1>
+<div class="content-wrapper">
+         <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><?= $title;  ?></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= base_url('admin') ?>">Dashboard</a></li>
+              <li class="breadcrumb-item active">Data User</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
 
 
-
-
- </div>
  <!-- Main content -->
  <section class="content">
      <div class="container-fluid">
          <!-- Main row -->
          <div class="row">
              <div class="col-12">
-                 <div class="card">
+                 <div class="card card-info">
                      <div class="card-header">
-                         <button class="btn btn-primary" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>Tambah User Baru</button>
-
+                     <h3 class="card-title">Daftar Pengguna (last update <?php echo date('d M Y'); ?>)</h3>
                      </div>
-                     <!-- /.card-header -->
+                     
                      <div class="card-body">
-                         <?php if ($this->session->flashdata('message')) {
-                                echo '<div class="alert alert-success alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                                echo $this->session->flashdata('message');
-                                echo '</div>';
-                            }
-                            ?>
-                         <?php if ($this->session->flashdata('form_error')) : ?>
-                             <div class="alert alert-danger" role="alert">
-                                 <?php echo $this->session->flashdata('form_error'); ?>
-                             </div>
-                         <?php endif; ?>
-                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                             <div class="row">
-                                 <div class="col-sm-12">
-                                     <table class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info" id="datatables">
+
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                         <div class="card">
+                            <div class="card-header">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>Tambah User Baru</button>
+                            </div>
+                        <!-- DataTales Example -->
+                                    <table id="example1" class="table table-bordered table-striped">
                                          <thead>
                                              <tr>
                                                  <th>No</th>
@@ -60,8 +64,8 @@
                                                      <td><?= $s->role; ?></td>
 
                                                      <td>
-                                                         <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#update_user<?= $s->id ?>"><i class="fas fa-edit"></i></button>
-                                                         <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deletemodal"><i class="fas fa-trash"></i></button>
+                                                         <button title="Edit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#update_user<?= $s->id ?>"><i class="fas fa-edit"></i></button>
+                                                         <a title="Hapus" onclick="deleteConfirm('<?php echo site_url('admin/delete_user/' . $s->id) ?>')" href="#!"  data-toggle="modal" data-target="#deletemodal" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                      </td>
                                                  </tr>
                                              <?php } ?>
@@ -82,6 +86,27 @@
                          </div>
                      </div>
 
+                       <!-- Modal Delete info lomba -->
+
+                    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                      <!-- Modal add User-->
                      <div class="modal fade" id="tambahbaru" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                          <div class="modal-dialog modal-dialog-centered" role="document">
@@ -101,14 +126,15 @@
                                          </div>
 
                                          <div class="form-group">
-                                             <label for="nim">NIP/NISN*</label>
-                                             <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan NIP/NISN">
-                                         </div>
-
-                                         <div class="form-group">
                                              <label for="email">E-Mail*</label>
                                              <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan E-Mail">
                                          </div>
+
+                                         <div class="form-group">
+                                             <label for="nip_nisn">NIP/NISN*</label>
+                                             <input type="text" class="form-control" id="nip_nisn" name="nip_nisn" placeholder="Masukkan NIP/NISN">
+                                         </div>
+
 
                                          <div class="form-group">
                                              <label for="password">Password*</label>
@@ -139,25 +165,6 @@
                          </div>
                      </div>
 
-                     <!-- Modal Delete User -->
-
-                     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                         <div class="modal-dialog" role="document">
-                             <div class="modal-content">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
-                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true"></span>
-                                     </button>
-                                 </div>
-                                 <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-                                 <div class="modal-footer">
-                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                     <a id="btn-delete" class="btn btn-danger" href="<?php echo site_url('Admin/delete_user/' . $s->id) ?>">Delete</a>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
 
                      <!-- Modal Edit User -->
                      <?php foreach ($role as $s) { ?>
@@ -179,22 +186,23 @@
                                              </div>
 
                                              <div class="form-group">
-                                                 <label for="nim">NIP/NISN*</label>
-                                                 <input type="text" class="form-control" id="nim" name="nim" value="<?= $s->nim ?>" placeholder="Masukkan NIP/NISN">
-                                             </div>
-
-                                             <div class="form-group">
                                                  <label for="email">E-Mail*</label>
                                                  <input type="email" class="form-control" id="email" name="email" value="<?= $s->email ?>" placeholder="Masukkan E-Mail">
                                              </div>
 
                                              <div class="form-group">
+                                                <label for="nip_nisn">NIP/NISN*</label>
+                                                <input type="text" class="form-control" id="nip_nisn" name="nip_nisn" value="<?= $s->nip_nisn ?>" placeholder="Masukkan NIP/NISN">
+                                            </div>
+
+
+                                             <div class="form-group">
                                                  <label for="password">Password*</label>
-                                                 <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
+                                                 <input required type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
                                              </div>
 
                                              <div class="form-group">
-                                                 <label for="image">Profil*</label>
+                                    
                                                  <input type="file" class="form-control" id="image" name="image" value="<?= $s->image ?>" placeholder="Masukkan Profil">
                                              </div>
 
@@ -219,3 +227,21 @@
                              </div>
                          </div>
                      <?php } ?>
+                     
+                    </div>
+                </div>
+                </div>
+            </section>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>

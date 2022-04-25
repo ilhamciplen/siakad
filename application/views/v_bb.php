@@ -101,7 +101,7 @@
                     <li><a href="<?= base_url('Jurusan/ankes') ?>">Analis Kesehatan</a></li>
                   </ul>
                 </li>
-                <li> <a href="#">Berita</a></li>
+                <li> <a href="<?= base_url('Berita/index') ?>">Berita</a></li>
                 <li> <a href="#">PPDB Online</a></li>
                 <li> <a href="#">Uji Kompetensi</a>
                   <ul>
@@ -125,48 +125,47 @@
   <!-- header bottom end -->
 </header>
 <!-- end header -->
-<!-- inner page banner -->
-<div id="inner_banner" class="section inner_banner_section">
+
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="full">
-          <div class="title-holder">
-            <div class="title-holder-cell text-left">
-              <h1 class="page-title">Busana Butik</h1>
-              <ol class="breadcrumb">
-                <li><a href="<?= base_url('Home/index') ?>">Home</a></li>
-                <li>Program Keahlian</li>
-                <li class="active">Busana Butik</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end inner page banner -->
-<!-- section -->
-<div class="section padding_layout_1 service_list">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12"><br>
+      <i><font color="grey" size="2" face="Arial">Beranda > Busana Butik</font></i><br><br>
+      <font color="black" size="6" face="Arial">Busana Butik</font><br><br>
         <div class="row">
           <div class="col-md-12 service_blog margin_bottom_50">
             <div class="full">
-              <div class="service_img"> <img class="img-responsive" src="<?= base_url() ?>template/front-end/images/it_service/post-02.jpg" alt="#" /> </div>
+              <div class="service_img"> <img class="img-responsive" src="<?= base_url() ?>template/front-end/images/it_service/bb.png" alt="#" /> </div>
+              <i><font color="grey" size="2" face="Arial">Busana Butik</font></i><br><br>
               <div class="service_cont">
-                <h3 class="service_head">Data recovery</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
-                  passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+              <b><font color="black" size="4" face="Arial">Visi</font></b><br>
+              <p align="justify"><font face="Arial" color="black" size="3">"Terwujudnya Insan yang Beriman, Mandiri, Kreatif dan Inovatif".</font></p>
+              <br><br>
+
+              <b><font color="black" size="4" face="Arial">Visi</font></b><br>
+              <p align="justify"><font face="Arial" color="black" size="3">"Menciptakan Lulusan yang Terampil di bidang Mekanik / Mesin serta mampu menjadi Wirausaha yang Tangguh".</font></p>
+              <br><br>
+
+              <b><font color="black" size="4" face="Arial">Tujuan Kompetensi Keahlian Teknik Kendaraan Ringan</font></b><br><br>
+              <p align="justify"><font face="Arial" color="black" size="3">Membekali peserta didik dengan Pengetahuan, Ketrampilan dan sikap professional kerja agar berkompeten dalam :</font></p><br>
+              <p align="justify"><font face="Arial" color="black" size="3">1. Menyiapkan peserta didik untuk menjadi manusia yang bertaqwa kepada Allah SWT.</font></p>
+              <p align="justify"><font face="Arial" color="black" size="3">2. Menyiapkan peserta didik untuk menjadi manusia berbudi pekerti luhur, berakhlaqul karimah, berkarakter serta berjiwa ahlussunnah wal jama’ah.</font></p>
+              <p align="justify"><font face="Arial" color="black" size="3">3. Menyiapkan peserta didik untuk menjadi manusia yang memiliki ketrampilan dalam Melakukan Perbaikan dan Perawatan perangkat-perangkat Elektronika</font></p>
+              <p align="justify"><font face="Arial" color="black" size="3">4. Menyiapkan peserta didik agar mampu memilih karier,ulet ,dan gigih dalam berwirausaha</font></p>
+              <br><br>
+
+              <b><font color="black" size="4" face="Arial">Penjamin Mutu</font></b><br><br>
+              <p align="justify"><font face="Arial" color="black" size="3">1. Kelas Toyota</font></p>
+              <p align="justify"><font face="Arial" color="black" size="3">2. Astra Daihatsu</font></p>
+              <br><br>
+
+              <b><font color="black" size="4" face="Arial">Program Unggulan</font></b><br><br>
+              <p align="justify"><font face="Arial" color="black" size="3">1. Ruang Praktik Siswa Teknik Kendaraan Ringan</font></p>
+             
+              <br><br>
+
+              
+
+
               </div>
             </div>
           </div>
@@ -187,7 +186,6 @@
       </div>
     </div>
   </div>
-</div>
 <!-- end section -->
 
 <!-- Modal -->
@@ -220,67 +218,32 @@
   <div class="container-fuild">
     <div class="row">
       <div class="map_section">
-        <div id="map"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.194576305181!2d110.76040904829311!3d-6.746107095099388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70dc4d092ba169%3A0xdf7902f11adb88c9!2sSMK%20Islam%20Al%20Hikmah%201%20Mayong!5e0!3m2!1sid!2sid!4v1649059678331!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="footer_blog">
         <div class="row">
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
+              <h2>Tentang Kami</h2>
             </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
+            <!-- <p>Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</p> -->
+            <p align="justify"><font face="Arial" color="white" size="2">Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</font></p>
+            
           </div>
+
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>Additional links</h2>
+              <h2>Kontak</h2>
             </div>
-            <ul class="footer-menu">
-              <li><a href="it_about.html"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-              <li><a href="it_news.html"><i class="fa fa-angle-right"></i> News</a></li>
-              <li><a href="it_contact.html"><i class="fa fa-angle-right"></i> Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <div class="main-heading left_text">
-              <h2>Services</h2>
-            </div>
-            <ul class="footer-menu">
-              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
-              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a></li>
-              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a></li>
-              <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network solutions</a></li>
-              <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
-                </fieldset>
-              </form>
-            </div>
+            <!-- <p>Sistem Informasi Akademik SMK Islam Al Hikmah Mayong, merupakan upaya kami dalam rangka mendukung terwujudnya layanan akademik yang akuntable dan transparan.</p> -->
+            <p align="justify"><font face="Arial" color="white" size="2">Alamat &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;Desa Singorojo RT. 05 RW. 03, Singorojo, Kec. Mayong, Kab. Jepara Prov. Jawa Tengah</font></p><br>
+            <p align="justify"><font face="Arial" color="white" size="2">Phone &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;(0291) 000000</font></p>
           </div>
         </div>
       </div>
       <div class="cprt">
-        <p>ItNext © Copyrights 2019 Design by html.design</p>
+        
+        <p align="center"><font face="Arial" color="white" size="2">SMKIA © Copyrights <?= date('Y'); ?> Design by Kuli Web Harian</font></p>
       </div>
     </div>
   </div>
@@ -295,114 +258,8 @@
 <script src="<?= base_url() ?>template/front-end/js/wow.js"></script>
 <!-- custom js -->
 <script src="<?= base_url() ?>template/front-end/js/custom.js"></script>
-<script>
 
-      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-      // Australia.
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: 40.645037, lng: -73.880224},
-		  styles: [
-               {
-                 elementType: 'geometry',
-                 stylers: [{color: '#fefefe'}]
-               },
-               {
-                 elementType: 'labels.icon',
-                 stylers: [{visibility: 'off'}]
-               },
-               {
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#616161'}]
-               },
-               {
-                 elementType: 'labels.text.stroke',
-                 stylers: [{color: '#f5f5f5'}]
-               },
-               {
-                 featureType: 'administrative.land_parcel',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#bdbdbd'}]
-               },
-               {
-                 featureType: 'poi',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eeeeee'}]
-               },
-               {
-                 featureType: 'poi',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#757575'}]
-               },
-               {
-                 featureType: 'poi.park',
-                 elementType: 'geometry',
-                 stylers: [{color: '#e5e5e5'}]
-               },
-               {
-                 featureType: 'poi.park',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#9e9e9e'}]
-               },
-               {
-                 featureType: 'road',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eee'}]
-               },
-               {
-                 featureType: 'road.arterial',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#3d3523'}]
-               },
-               {
-                 featureType: 'road.highway',
-                 elementType: 'geometry',
-                 stylers: [{color: '#eee'}]
-               },
-               {
-                 featureType: 'road.highway',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#616161'}]
-               },
-               {
-                 featureType: 'road.local',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#9e9e9e'}]
-               },
-               {
-                 featureType: 'transit.line',
-                 elementType: 'geometry',
-                 stylers: [{color: '#e5e5e5'}]
-               },
-               {
-                 featureType: 'transit.station',
-                 elementType: 'geometry',
-                 stylers: [{color: '#000'}]
-               },
-               {
-                 featureType: 'water',
-                 elementType: 'geometry',
-                 stylers: [{color: '#c8d7d4'}]
-               },
-               {
-                 featureType: 'water',
-                 elementType: 'labels.text.fill',
-                 stylers: [{color: '#b1a481'}]
-               }
-             ]
-		});
-
-        var image = 'images/it_service/location_icon_map_cont.png';
-        var beachMarker = new google.maps.Marker({
-          position: {lat: 40.645037, lng: -73.880224},
-          map: map,
-          icon: image
-        });
-      }
-    </script>
 <!-- google map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
 <!-- end google map js -->
 </body>
 </html>

@@ -25,10 +25,13 @@ class Menu extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('menu/index', $data);
             $this->load->view('templates/footer');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('templates/js');
+
+            $this->session->set_flashdata('success');
+
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]); //memasukkan data lolos validasi ke tabel user_menu
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            $this->session->set_flashdata('success', 'New Menu Added');
             redirect('menu');
         }
     }
@@ -55,7 +58,10 @@ class Menu extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('menu/submenu', $data);
             $this->load->view('templates/footer');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('templates/js');
+
+            $this->session->set_flashdata('success');
+
         } else {
             //penyiapan data
             $data = [
@@ -66,7 +72,7 @@ class Menu extends CI_Controller
                 'is_active' => $this->input->post('is_active')
             ];
             $this->db->insert('user_sub_menu', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New sub menu added!</div>');
+            $this->session->set_flashdata('success', 'New Sub Menu Added!');
             redirect('menu/submenu');
         }
     }

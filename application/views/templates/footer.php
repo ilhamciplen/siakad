@@ -1,23 +1,18 @@
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy;SIAKAD SMKIA <?= date('Y'); ?></span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; <?= date('Y'); ?> <a href="https://adminlte.io">Kuli Web Harian</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0
+    </div>
+  </footer>
 
-            </div>
-            <!-- End of Content Wrapper -->
-
-            </div>
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
 
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,15 +33,6 @@
                 </div>
             </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-            <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Core plugin JavaScript-->
-            <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-            <!-- Custom scripts for all pages-->
-            <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
             <script>
                 $('.custom-file-input').on('change', function() {

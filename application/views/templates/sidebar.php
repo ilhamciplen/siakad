@@ -1,24 +1,22 @@
-<!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+ <!-- Main Sidebar Container -->
+ <aside class="main-sidebar elevation-4 sidebar-light-primary">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link navbar-success">
+                <img src="<?= base_url() ?>assets/img/smkia.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light" style="color: white;">SIAKAD SMKIA</span>
+            </a>
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-0">
-            <img class="" src="<?= base_url() ?>assets/img/smkia.png" alt="SMKIA" style="width: 40px;" />
-        </div>
-        <div font size="10"> SIAKAD SMKIA</div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url() ?>">
-            <i class="fas fa-fw fa-home"></i>
-            <span>Beranda</span></a>
-    </li>
-
-    <hr class="sidebar-divider mt-3">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img  src="<?= base_url('upload/user/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image" style="overflow:visible;height:30px;width:30px">
+                    </div>
+                    <div class="info">
+                        <a><?= $user['name'];  ?></a>
+                    </div>
+                </div>
 
 
     <!-- QUERY MENU -->
@@ -54,14 +52,15 @@
 
         <?php foreach ($subMenu as $sm) : ?>
             <?php if ($title == $sm['title']) : ?>
-                <li class="nav-item active">
+
+                <a class="nav-item active">
                 <?php else : ?>
-                <li class="nav-item">
+                
                 <?php endif; ?>
                 <a class="nav-link pb-0" href="<?= base_url($sm['url']); ?>">
                     <i class="<?= $sm['icon']; ?>"></i>
                     <span><?= $sm['title'];  ?></span></a>
-                </li>
+                
             <?php endforeach; ?>
 
             <hr class="sidebar-divider mt-3">
@@ -70,20 +69,14 @@
 
 
 
-        <li class="nav-item">
             <a class="nav-link pb-0" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>
-        </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-
-</ul>
+        </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
 <!-- End of Sidebar -->
